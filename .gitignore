@@ -1,0 +1,5 @@
+data/*
+mining/
+model/*
+tensorboard_summary/
+*/__pycache__
