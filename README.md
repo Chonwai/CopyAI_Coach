@@ -1,5 +1,6 @@
 # GPT2-Chinese
-# 源碼來源為 [Morizeyao/GPT2-Chinese](https://github.com/Morizeyao/GPT2-Chinese)
+## Source Code
+[Morizeyao/GPT2-Chinese](https://github.com/Morizeyao/GPT2-Chinese)
 ## Description
 
 - Chinese version of GPT2 training code, using BERT tokenizer or BPE tokenizer. It is based on the extremely awesome repository from HuggingFace team [Transformers](https://github.com/huggingface/transformers). Can write poems, news, novels, or train general language models. Support char level, word level and BPE level. Support large training corpus.

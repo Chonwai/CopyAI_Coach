@@ -1,9 +1,9 @@
 import argparse
 import thulac
 import json
-
+import tensorflow
 from tqdm import tqdm
-from keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.text import Tokenizer
 
 
 def main():
