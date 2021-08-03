@@ -176,8 +176,8 @@ def main():
     if args.save_samples:
         if not os.path.exists(args.save_samples_path):
             os.makedirs(args.save_samples_path)
-        samples_file = open(args.save_samples_path + '/result.json', 'w', encoding='utf8')
     while True:
+        samples_file = open(args.save_samples_path + '/result.json', 'w', encoding='utf8')
         raw_text = args.prefix
         context_tokens = tokenizer.convert_tokens_to_ids(tokenizer.tokenize(raw_text))
         generated = 0

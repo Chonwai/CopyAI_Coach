@@ -3,3 +3,4 @@ mining/
 model/*
 tensorboard_summary/
 */__pycache__
+result.json
