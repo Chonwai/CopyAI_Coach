@@ -4,6 +4,7 @@ import os
 import argparse
 from tqdm import trange
 from transformers import GPT2LMHeadModel
+import json
 
 
 def is_word(word):
@@ -166,6 +167,8 @@ def main():
     model.to(device)
     model.eval()
 
+    resultList = []
+
     n_ctx = model.config.n_ctx
 
     if length == -1:
@@ -173,7 +176,7 @@ def main():
     if args.save_samples:
         if not os.path.exists(args.save_samples_path):
             os.makedirs(args.save_samples_path)
-        samples_file = open(args.save_samples_path + '/samples.txt', 'w', encoding='utf8')
+        samples_file = open(args.save_samples_path + '/result.json', 'w', encoding='utf8')
     while True:
         raw_text = args.prefix
         context_tokens = tokenizer.convert_tokens_to_ids(tokenizer.tokenize(raw_text))
@@ -202,7 +205,7 @@ def main():
                         text[i] = '\n'
                 info = "=" * 40 + " SAMPLE " + str(generated) + " " + "=" * 40 + "\n"
                 print(info)
-                text = ''.join(text).replace('##', '').strip()
+                text = ''.join(text).replace('##', '').replace('\n\n', '').replace('\n', '').strip()
                 print(text)
                 if args.save_samples:
                     samples_file.write(info)
@@ -210,7 +213,10 @@ def main():
                     samples_file.write('\n')
                     samples_file.write('=' * 90)
                     samples_file.write('\n' * 2)
+                resultList.append(text)
         print("=" * 80)
+        json.dump(resultList, samples_file, ensure_ascii=False)
+        print(resultList)
         if generated == nsamples:
             # close file when finish writing.
             if args.save_samples:
