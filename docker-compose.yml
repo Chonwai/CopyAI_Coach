@@ -1,0 +1,10 @@
+version: '3.2'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/app/DockerFile
+    # entrypoint:
+    #     # - "/usr/bin/python --version"
+    #   - "python3 generate.py --prefix='鋼筆，銀色，時尚，鋼製。' --length=50 --nsamples=8 --model_path='model/model_wiki5_epoch1'"
