@@ -26,6 +26,17 @@ ENV GPT2_ROOT /app
 RUN mkdir $GPT2_ROOT
 WORKDIR $GPT2_ROOT
 
+ARG PREFIX
+ENV PREFIX=$PREFIX
+RUN echo $PREFIX
+ARG NSAMPLES
+ENV NSAMPLES=$NSAMPLES
+RUN echo $NSAMPLES
+ARG MODEL_PATH
+ENV MODEL_PATH=$MODEL_PATH
+RUN echo $MODEL_PATH
+
 COPY . .
 
-ENTRYPOINT [ "bash", "entrypoint.sh" ]
+# ENTRYPOINT [ "bash", "entrypoint.sh" ]
+ENTRYPOINT [ "python3", "generate.py", "--prefix=$PREFIX", "--length=50", "--nsamples=5", "--model_path=$MODEL_PATH"]
