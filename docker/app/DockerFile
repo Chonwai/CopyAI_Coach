@@ -20,7 +20,7 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip && \
     future \
     thulac \
     tqdm \
-    transformers
+    transformers==2.1.1
 
 ENV GPT2_ROOT /app
 RUN mkdir $GPT2_ROOT
