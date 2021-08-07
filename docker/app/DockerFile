@@ -38,5 +38,5 @@ RUN echo $MODEL_PATH
 
 COPY . .
 
-# ENTRYPOINT [ "bash", "entrypoint.sh" ]
-ENTRYPOINT [ "python3", "generate.py", "--prefix=$PREFIX", "--length=50", "--nsamples=5", "--model_path=$MODEL_PATH"]
+ENTRYPOINT [ "bash", "entrypoint.sh" ]
+# ENTRYPOINT [ "python3", "generate.py"]
